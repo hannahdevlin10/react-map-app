@@ -19,43 +19,46 @@ export default function CustomDrawer () {
             setPanelOpen(false)
         }
 
-        switch(selectedCounty) {
-            case 'North Tipperary' :
-                setData(cases?.find((item) => item?.attributes?.CountyName === 'Tipperary'))
-                setIncidenceData(casesInc?.filter((item) => item?.attributes?.COUNTY === 'TIPPERARY'));
-                break;
-            case 'South Tipperary' :
-                setData(cases?.find((item) => item?.attributes?.CountyName === 'Tipperary'))
-                setIncidenceData(casesInc?.filter((item) => item?.attributes?.COUNTY === 'TIPPERARY'));
-                break;
-            case 'Fingal' :
-                setData(cases?.find((item) => item?.attributes?.CountyName === 'Dublin'))
-                setIncidenceData(casesInc?.filter((item) => item?.attributes?.COUNTY === 'DUBLIN'));
-                break;
-            case 'Dublin City' :
-                setData(cases?.find((item) => item?.attributes?.CountyName === 'Dublin'))
-                setIncidenceData(casesInc?.filter((item) => item?.attributes?.COUNTY === 'DUBLIN'));
-                break;
-            case 'South Dublin' :
-                setData(cases?.find((item) => item?.attributes?.CountyName === 'Dublin'))
-                setIncidenceData(casesInc?.filter((item) => item?.attributes?.COUNTY === 'DUBLIN'));
-                break;
-            case 'Dún Laoghaire-Rathdown' :
-                setData(cases?.find((item) => item?.attributes?.CountyName === 'Dublin'))
-                setIncidenceData(casesInc?.filter((item) => item?.attributes?.COUNTY === 'DUBLIN'));
-                break;
-            case 'Cork City' :
-                setData(cases?.find((item) => item?.attributes?.CountyName === 'Cork'))
-                setIncidenceData(casesInc?.filter((item) => item?.attributes?.COUNTY === 'CORK'));
-                break;
-            case 'Galway City' :
-                setData(cases?.find((item) => item?.attributes?.CountyName === 'Galway'))
-                setIncidenceData(casesInc?.filter((item) => item?.attributes?.COUNTY === 'GALWAY'));
-                break;
-            default:
-                setData(cases?.find((item) => item?.attributes?.CountyName === selectedCounty))
-                setIncidenceData(casesInc?.filter((item) => item?.attributes?.COUNTY === selectedCounty.toUpperCase()))
+        if (selectedCounty) {
+            switch(selectedCounty) {
+                case 'North Tipperary' :
+                    setData(cases?.find((item) => item?.attributes?.CountyName === 'Tipperary'))
+                    setIncidenceData(casesInc?.filter((item) => item?.attributes?.COUNTY === 'TIPPERARY'));
+                    break;
+                case 'South Tipperary' :
+                    setData(cases?.find((item) => item?.attributes?.CountyName === 'Tipperary'))
+                    setIncidenceData(casesInc?.filter((item) => item?.attributes?.COUNTY === 'TIPPERARY'));
+                    break;
+                case 'Fingal' :
+                    setData(cases?.find((item) => item?.attributes?.CountyName === 'Dublin'))
+                    setIncidenceData(casesInc?.filter((item) => item?.attributes?.COUNTY === 'DUBLIN'));
+                    break;
+                case 'Dublin City' :
+                    setData(cases?.find((item) => item?.attributes?.CountyName === 'Dublin'))
+                    setIncidenceData(casesInc?.filter((item) => item?.attributes?.COUNTY === 'DUBLIN'));
+                    break;
+                case 'South Dublin' :
+                    setData(cases?.find((item) => item?.attributes?.CountyName === 'Dublin'))
+                    setIncidenceData(casesInc?.filter((item) => item?.attributes?.COUNTY === 'DUBLIN'));
+                    break;
+                case 'Dún Laoghaire-Rathdown' :
+                    setData(cases?.find((item) => item?.attributes?.CountyName === 'Dublin'))
+                    setIncidenceData(casesInc?.filter((item) => item?.attributes?.COUNTY === 'DUBLIN'));
+                    break;
+                case 'Cork City' :
+                    setData(cases?.find((item) => item?.attributes?.CountyName === 'Cork'))
+                    setIncidenceData(casesInc?.filter((item) => item?.attributes?.COUNTY === 'CORK'));
+                    break;
+                case 'Galway City' :
+                    setData(cases?.find((item) => item?.attributes?.CountyName === 'Galway'))
+                    setIncidenceData(casesInc?.filter((item) => item?.attributes?.COUNTY === 'GALWAY'));
+                    break;
+                default:
+                    setData(cases?.find((item) => item?.attributes?.CountyName === selectedCounty))
+                    setIncidenceData(casesInc?.filter((item) => item?.attributes?.COUNTY === selectedCounty.toUpperCase()))
+            }
         }
+        
         setShowBreakdown(false);
     }, [selectedCounty])
 
