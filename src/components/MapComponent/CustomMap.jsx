@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { MapContainer, GeoJSON } from 'react-leaflet';
 import mapData from '../../data/ireland.json';
 import 'leaflet/dist/leaflet.css';
@@ -6,15 +6,10 @@ import { useContext } from 'react';
 import { CaseContext } from '../../context/CaseContext';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Button } from '@mui/material';
-import { useState } from 'react';
 
 export default function CustomMap () {
-    const {cases, selectedCounty, setSelectedCounty, panelOpen, setPanelOpen} = useContext(CaseContext);
-    const [coords, setCoords] = useState(null);
-
-    useEffect(() => {
-        setCoords(cases?.find((item) => item?.attributes?.CountyName === selectedCounty)?.geometry);
-    }, [selectedCounty]);
+    const {selectedCounty, setSelectedCounty, panelOpen, setPanelOpen} = useContext(CaseContext);
+    // const [coords, setCoords] = useState(null);
 
     const handleOnClick = () => {
         if (!panelOpen) {
