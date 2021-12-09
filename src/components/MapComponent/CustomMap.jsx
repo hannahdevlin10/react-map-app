@@ -32,6 +32,7 @@ export default function CustomMap () {
         layer.on({
             click: (event) => {
                 setSelectedCounty(event.target.feature.properties.name)
+                setPanelOpen(true);
                 setTimeout(function (){
                     if (event.target.feature.properties.name === countyName) {
                         event.target.setStyle ({
@@ -52,10 +53,10 @@ export default function CustomMap () {
         <div>
             <div style={{ display: 'flex', width: '100%' }}>
                 <div style={{ width: '95%' }}>
-                    <h1 style={{ marginRight: '-58px' }}>Ireland Covid Data</h1>
+                    <h1 style={{ marginRight: '-58px' }}>Covid Data</h1>
                 </div>
                 <div style={{ margin: 'auto' }}>
-                    <Button style={{ color: 'black' }} onClick={handleOnClick} disabled={!selectedCounty}>
+                    <Button style={{ color: 'black' }} onClick={handleOnClick}>
                         <MenuIcon style={{ fontSize: '38px', padding: '0px' }}/>
                     </Button>
                 </div>
